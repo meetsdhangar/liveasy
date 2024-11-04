@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:liveasy/Screens/HomeScreen.dart';
 import 'package:pinput/pinput.dart';
 
 class OtpScreen extends StatelessWidget {
@@ -17,7 +19,7 @@ class OtpScreen extends StatelessWidget {
             children: [
               Text(
                 "Verify Phone",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w500),
               ),
               Text(
                 "Code is sent to 8094508485",
@@ -31,8 +33,8 @@ class OtpScreen extends StatelessWidget {
               Pinput(
                 showCursor: true,
                 defaultPinTheme: PinTheme(
-                    width: 56.w,
-                    height: 56.h,
+                    width: 48.w,
+                    height: 48.h,
                     decoration: BoxDecoration(
                         color: Color.fromARGB(255, 147, 210, 243))),
                 length: 6,
@@ -52,7 +54,7 @@ class OtpScreen extends StatelessWidget {
                   Text(
                     " Request Again",
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 15.sp,
                     ),
                   )
                 ],
@@ -60,22 +62,27 @@ class OtpScreen extends StatelessWidget {
               SizedBox(
                 height: 20.h,
               ),
-              Container(
-                child: Center(
-                  child: Text(
-                    "VERIFY AND CONTINUE",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20,
+              InkWell(
+                onTap: () {
+                  Get.offAll(() => HomeScreen());
+                },
+                child: Container(
+                  child: Center(
+                    child: Text(
+                      "VERIFY AND CONTINUE",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20.sp,
+                      ),
                     ),
                   ),
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 46, 59, 98),
+                  ),
+                  height: 56.h,
+                  width: MediaQuery.of(context).size.width,
                 ),
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 46, 59, 98),
-                ),
-                height: 60.h,
-                width: MediaQuery.of(context).size.width,
               )
             ],
           ),
